@@ -1,11 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus</title>
-    </head>
-    <body>
-        Hello World
-    </body>
-</html>
+<html data-framework="react" data-version="7" data-localstorage-bridge="kv-v1" style=""><head>
+<script>
+console.log('[FLASH APP] boot');
+window.__fullscreen = false;
+window.addEventListener('message', function(event) {
+    const data = event && event.data;
+    if (!data) {
+        return;
+    }
+    if (data.type === 'FLASH_APP_FULLSCREEN') {
+        if (typeof data.value === 'boolean') {
+            window.__fullscreen = data.value;
+            return;
+        }
+        if (data.action === 'zoomin') {
+            window.__fullscreen = true;
+            return;
+        }
+        if (data.action === 'zoomout') {
+            window.__fullscreen = false;
+            return;
+        }
+    }
+});
+</script>
+<meta name="flash-app-html-url" content="https://render.lingguangcontent.com/p/lingguang/0a-21a4620217744886519878487e2453/index.html"><script>window.__flashAppLocalStorageBridgeConfig = {"enabled":true,"mode":"kv-v1","storageKey":"__flash_app_localstorage_bridge_snapshot_v1__","storageNamespace":"flashapp-36ecc6b02528454e","artifactId":"flashapp-36ecc6b02528454e","artifactVersion":"238","htmlUrl":"https://render.lingguangcontent.com/p/lingguang/0a-21a4620217744886519878487e2453/index.html","snapshot":{"tileCalculatorHistory":"[]"}};</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>地磚計算器 - KITO Ceramics Hong Kong</title>
+    <meta name="description" content="專業的地磚和牆磚鋪貼計算工具，支援多種房間形狀、損耗率設置、自定義箱數規格、報價單生成、Excel導出、分享和圖片下載功能">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#1E3A8A">
+    <base href="https://render.lingguangobjects.com/p/yuyan/180023180148043030/">
+    <link href="https://gw.alipayobjects.com/render/p/yuyan/180023180003946312/material-icons.css" rel="stylesheet" crossorigin="anonymous">
+    <script>window.injectInfo = { env: "PROD" };</script><script>window.publicPath = "https://render.lingguangobjects.com/p/yuyan/180023180148043030/";</script>
+<script type="module" src="https://gw.alipayobjects.com/render/p/yuyan/180023180136157305/base/base.js"></script>
+<script type="module" src="https://gw.alipayobjects.com/render/p/yuyan/180023180042934971/AudioContext2.js"></script>
+<script type="module" src="https://gw.alipayobjects.com/render/p/yuyan/180023180042934971/voice-tts-simple.js"></script>
+
+    <script type="module" crossorigin="" src="./assets/index-CwqFmnVr.js"></script>
+    <link rel="stylesheet" crossorigin="" href="./assets/index-CCIjzZaU.css">
+  <script>
+    window.artifactId = "flashapp-36ecc6b02528454e";
+    window.artifactVersion = "238";
+    window.trace_id = "21a4620217744886519878487e2453";
+</script>
+<meta http-equiv="Content-Security-Policy" content="
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  frame-src 'self' data: blob: *.alipay.com *.alipayobjects.com *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  connect-src 'self' data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  child-src 'self' data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  object-src 'self' data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  base-uri 'self' *.alipay.com *.alipayobjects.com *.amap.com *.lingguang.com *.lingguangcontent.com *.lingguangobjects.com;
+  form-action 'none';
+  upgrade-insecure-requests;
+">
+
+<!--<!-- 
+=== 應用功能說明 ===
+1. 地磚計算器
+   - 支援矩形、L型、多區域三種房間形狀
+   - 支援多種地磚尺寸：600×600、200×1200、800×800、600×1200、400×800、75×300、300×600、200×200、750×1500
+   - 支援自定義箱數規格（2-8塊/箱，以及其他選項）
+   - 支援損耗率設置（10%、15%）
+
+2. 牆身鋪磚
+   - 支援四面牆面總面積計算
+   - 支援牆身地磚箱數規格設置
+   - 支援損耗率設置
+
+3. 輸出功能
+   - 支援輸出報價單
+   - 支援導出 Excel 表格
+   - 支援分享功能
+   - 支援下載詳情頁面為圖片
+   - 支援導出 HTML 源代碼（用於備份和還原）
+
+4. 開發者工具
+   - 查看應用程式完整 HTML 源代碼
+   - 導出 HTML 源代碼
+   - 複製源代碼到剪貼板
+   - 文件瀏覽器：樹狀目錄查看所有文件
+   - 導出所有文件：將所有源代碼文件打包為 ZIP 格式下載
+   - 文件內容預覽：查看預存的文件內容
+
+=== 應用功能說明結束 ===
+--><!--<!-- 
+=== MANIFEST.JSON 內容（備份用）===
+{
+  "name": "地磚計算器 - KITO Ceramics Hong Kong",
+  "short_name": "地磚計算器",
+  "description": "專業的地磚和牆磚鋪貼計算工具，支援多種房間形狀、損耗率設置、自定義箱數規格、報價單生成、Excel導出、分享和圖片下載功能",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1E3A8A",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities", "business"],
+  "lang": "zh-HK"
+}
+=== MANIFEST.JSON 結束 ===
+--></head>
+  <body style="">
+    <div id="root"><div id="container" class="main-container"><div id="safe-area"></div><header class="app-header"><div class="logo-container"><img src="https://render.lingguangobjects.com/p/yuyan/180023180148043030/assets/resource_7773ece4-DTNH5hot.jpg" alt="Logo" class="app-logo"><div class="company-name">KITO Ceramics Hong Kong ®</div></div><div class="header-title-row"><h1>地磚計算器</h1><button class="header-action-btn" data-testid="settings-btn"><span class="material-icons">settings</span></button></div></header><main class="app-main"><section class="customer-info-section"><h2 class="section-title"><span class="material-icons">person</span>客戶資料</h2><div class="input-group"><div class="input-item full-width"><label data-testid="customer-name-label">客戶名稱</label><div class="input-wrapper"><input type="text" placeholder="請輸入客戶名稱" data-testid="customer-name-input" value=""></div></div><div class="input-item full-width"><label data-testid="customer-phone-label">聯繫電話</label><div class="input-wrapper"><input type="tel" placeholder="請輸入聯繫電話" data-testid="customer-phone-input" readonly="" value=""></div></div><div class="input-item full-width"><label data-testid="customer-address-label">送貨地址</label><div class="input-wrapper"><input type="text" placeholder="請輸入送貨地址" data-testid="customer-address-input" value=""></div></div></div></section><section class="shape-section"><h2 class="section-title"><span class="material-icons">category</span>房間形狀</h2><div class="shape-options"><button class="shape-option active" data-testid="shape-rectangle"><span class="material-icons">crop_square</span><span>矩形</span></button><button class="shape-option " data-testid="shape-l-shape"><span class="material-icons">change_history</span><span>L型</span></button><button class="shape-option " data-testid="shape-multi"><span class="material-icons">view_module</span><span>多區域</span></button></div></section><section class="input-section"><h2 class="section-title"><span class="material-icons">straighten</span>房間尺寸</h2><div class="input-group"><div class="input-item full-width"><label data-testid="room-name-label">房間名稱</label><div class="input-wrapper"><input type="text" placeholder="請輸入房間名稱" data-testid="room-name-input" value="房間"></div></div><div class="input-item"><label data-testid="length-label">長度 (mm)</label><div class="input-wrapper"><input type="text" inputmode="decimal" placeholder="請輸入長度" data-testid="length-input" readonly="" value=""><span class="unit">mm</span></div></div><div class="input-item"><label data-testid="width-label">寬度 (mm)</label><div class="input-wrapper"><input type="text" inputmode="decimal" placeholder="請輸入寬度" data-testid="width-input" readonly="" value=""><span class="unit">mm</span></div></div><div class="input-item full-width"><label data-testid="tile-style-label">地磚款式</label><div class="input-wrapper"><input type="text" placeholder="請輸入地磚款式" data-testid="tile-style-input" value=""></div></div><div class="input-item full-width"><label data-testid="tile-price-label">單價</label><div class="input-wrapper"><input type="text" inputmode="decimal" placeholder="請輸入單價" data-testid="tile-price-input" readonly="" value=""></div></div><div class="input-item full-width"><label data-testid="tile-size-label">地磚尺寸</label><div class="select-wrapper"><select data-testid="tile-size-select"><option value="0">600mm × 600mm</option><option value="1">200mm × 1200mm</option><option value="2">800mm × 800mm</option><option value="3">600mm × 1200mm</option><option value="4">400mm × 800mm</option><option value="5">75mm × 300mm</option><option value="6">300mm × 600mm</option><option value="7">200mm × 200mm</option><option value="8">750mm × 1500mm</option></select><span class="material-icons select-icon">expand_more</span></div></div><div class="input-item full-width"><label data-testid="box-size-label">地磚（箱）</label><div class="select-wrapper"><select data-testid="box-size-select"><option value="0">2塊/箱</option><option value="1">3塊/箱</option><option value="2">4塊/箱</option><option value="3">5塊/箱</option><option value="4">6塊/箱</option><option value="5">7塊/箱</option><option value="6">8塊/箱</option><option value="7">其他</option></select><span class="material-icons select-icon">expand_more</span></div></div></div></section><section class="wall-paving-section"><h2 class="section-title"><span class="material-icons">view_in_ar</span>牆身鋪磚</h2><div class="input-item full-width"><label class="checkbox-label" data-testid="wall-paving-enabled-label"><input type="checkbox" data-testid="wall-paving-enabled-checkbox"><span class="checkbox-text">啟用牆身鋪磚</span></label></div></section><section class="select-section"><h2 class="section-title"><span class="material-icons">warning_amber</span>安裝損耗</h2><div class="select-wrapper"><select data-testid="loss-select"><option value="0">10%</option><option value="1">15%</option></select><span class="material-icons select-icon">expand_more</span></div></section><div class="hint-message"><span class="material-icons">info</span>請輸入房間的長度和寬度</div></main><div class="modal-overlay"><div class="modal-content settings-modal-content"><div class="modal-header"><h2>設置</h2><button class="modal-close-btn" data-testid="settings-close-btn"><span class="material-icons">close</span></button></div><div class="modal-body settings-modal-body"><div class="settings-section"><h3>折扣設置</h3><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">discount</span><div class="settings-item-text"><div class="settings-item-title">折扣百分比</div><div class="settings-item-description">設置報價單的折扣百分比（0-100）</div></div></div><div class="discount-input-container"><input type="number" class="discount-input" min="0" max="100" step="1" data-testid="discount-input" readonly="" value=""><span class="discount-percent-symbol">%</span></div></div></div><div class="settings-section"><h3>測試數據預設</h3><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">science</span><div class="settings-item-text"><div class="settings-item-title">顯示測試數據預設</div><div class="settings-item-description">開啟後顯示測試數據預設選項</div></div></div><label class="settings-toggle" data-testid="show-test-presets-toggle"><input type="checkbox" data-testid="show-test-presets-checkbox"><span class="settings-toggle-slider"></span></label></div></div><div class="settings-section"><h3>數據管理</h3><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">delete_forever</span><div class="settings-item-text"><div class="settings-item-title">清空所有數據</div><div class="settings-item-description">清空所有輸入的數據，恢復到初始狀態</div></div></div><button class="settings-action-btn settings-danger-btn" data-testid="clear-all-btn"><span class="material-icons">delete</span><span>清空</span></button></div></div><div class="settings-section"><h3>開發者工具</h3><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">code</span><div class="settings-item-text"><div class="settings-item-title">HTML 源代碼</div><div class="settings-item-description">查看和導出應用程式的 HTML 源代碼，用於維修、備份和還原</div></div></div><button class="settings-action-btn" data-testid="dev-button"><span class="material-icons">open_in_new</span><span>打開</span></button></div><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">folder_open</span><div class="settings-item-text"><div class="settings-item-title">文件瀏覽器</div><div class="settings-item-description">瀏覽應用程式的所有文件，支持單個下載和批量導出</div></div></div><button class="settings-action-btn" data-testid="file-browser-btn"><span class="material-icons">open_in_new</span><span>打開</span></button></div></div><div class="settings-section"><h3>歷史記錄</h3><div class="settings-item"><div class="settings-item-info"><span class="material-icons settings-icon">history</span><div class="settings-item-text"><div class="settings-item-title">查看歷史記錄</div><div class="settings-item-description">查看和恢復之前的計算記錄</div></div></div><button class="settings-action-btn" data-testid="history-btn"><span class="material-icons">open_in_new</span><span>打開</span></button></div></div></div></div></div></div></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+  
+
+</body></html>
